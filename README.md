@@ -4,9 +4,7 @@ AAROGYAM AI is an intelligent, AI/ML-powered platform designed to forecast hyper
 
 ---
 
-## 🔍 Problem Statement (Bharatiya Antariksh Hackathon 2025 – Problem 
-7)
-
+## 🔍 Problem Statement (Bharatiya Antariksh Hackathon 2025 – Problem -7
 Develop an algorithm and mobile/web application to visualise real-time AQI, forecast 72-hour air quality using meteorological and satellite data, and provide localised health advisories for rural and small-town populations.
 
 ---
@@ -37,15 +35,23 @@ Develop an algorithm and mobile/web application to visualise real-time AQI, fore
 
 ## 📂 Project Structure
 
-AAROGYAM-AI/
-├── client/ # React frontend
-│ └── components/ # UI components
-├── server/ # Node.js backend API
-│ └── index.js
-├── ml_model/ # Flask-based ML forecast engine
-│ └── app.py
-├── model.pkl # Pre-trained ML model (PM2.5 forecast)
-├── README.md
+| Path                    | Description                                                  |
+|-------------------------|--------------------------------------------------------------|
+| `/client/`              | React frontend for AQI visualisation and user interaction    |
+| ├── `/src/components/`  | Reusable UI components (cards, charts, maps, etc.)           |
+| ├── `App.js`            | Main application component                                   |
+| └── `index.js`          | React entry point                                            |
+| `/server/`              | Node.js + Express backend API                                |
+| └── `index.js`          | Handles routes, connects frontend and ML API                 |
+| `/ml_model/`            | Flask server hosting the trained ML model                   |
+| ├── `app.py`            | API endpoint for PM2.5 prediction                           |
+| └── `model.pkl`         | Pre-trained XGBoost regression model                        |
+| `/public/`              | Static assets for frontend                                   |
+| `/data/` (optional)     | Scripts or data files for preprocessing and testing          |
+| `README.md`             | Project documentation                                        |
+| `.gitignore`            | Specifies untracked files for Git                           |
+| `package.json`          | NPM metadata and dependencies for backend/frontend           |
+| `requirements.txt`      | Python dependencies for ML model                             |
 
 
 ---
@@ -78,7 +84,7 @@ python app.py
 ### 3. Start the Backend Server
 cd server
 npm install
-node index.js
+ode index.js
 
 ---
 
@@ -106,11 +112,14 @@ Evaluation Metrics: MAE, RMSE, R²
 ---
 
 ## 👥 Team VYANAM
-Name	Role	Institution
-Priyanshu Sharma	AI/ML Lead, Backend Developer	IIPS Mumbai
-Bipul Kumar	Frontend Developer, UI/UX	IIPS Mumbai
-Ranveer Raj	Forecast Integration, Data Handling	IIPS Mumbai
-Madhav Verma	Health Mapping, Research Coordinator,	IIPS (MA Population Studies)
+
+| Name              | Role & Expertise                                                                 | Institution                      |
+|-------------------|-----------------------------------------------------------------------------------|----------------------------------|
+| **Priyanshu Sharma**  | 💡 AI/ML Lead & Backend Developer — Designed the prediction model, Flask-ML pipeline, API logic, and coordinated overall project architecture | IIPS Mumbai (MSc Survey Research and Data Analytics)|
+| **Bipul Kumar**       | 🎨 Frontend Developer & UI/UX Designer — Developed the React interface, integrated AQI maps, graphs, and ensured responsive user experience | IIPS Mumbai (MSc Survey Research and Data Analytics)|
+| **Ranveer Raj**       | 📊 Forecast Integration & Data Handler — Curated datasets, connected meteorological APIs, supported ML model validation and backend logic | IIPS Mumbai (MSc Survey Research and Data Analytics)|
+| **Madhav Verma**      | 🧘‍♂️ Health Advisor & Research Coordinator — Created health mapping system, linked AQI to health advisories, contributed to data interpretation & impact focus | IIPS (MA Population Studies)     |
+
 
 ---
 
