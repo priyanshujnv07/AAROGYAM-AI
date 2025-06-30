@@ -61,76 +61,90 @@ AAROGYAM-AI/
 
 ## 🔧 Setup & Run Locally
 
-### 1. Clone the repository
-```bash
+### 1. Clone the Repository
+bash
 git clone https://github.com/priyanshujnv07/AAROGYAM-AI.git
 cd AAROGYAM-AI
-2. Start ML Model Server
-bash
-Copy
-Edit
+
+---
+
+### 2. Start the ML Model Server
 cd ml_model
 pip install -r requirements.txt
 python app.py
-3. Start Node.js Backend
-bash
-Copy
-Edit
+
+---
+
+### 3. Start the Backend Server
 cd server
 npm install
 node index.js
-4. Start React Frontend
-bash
-Copy
-Edit
+
+---
+
+### 4. Start the Frontend
 cd client
 npm install
 npm start
-🤖 Machine Learning Model
-Input Features: Temperature, Humidity, Wind Speed, Past AQI
+
+---
+
+## 🤖 Machine Learning Model
+Input Features: Temperature, Humidity, Wind Speed, Historical AQI
 
 Model: XGBoost Regressor trained on real-world Indian air quality data
 
-Output: PM2.5 concentration prediction for 3 days
+Output: PM2.5 concentration prediction for the next 3 days
 
 Evaluation Metrics: MAE, RMSE, R²
 
-📈 Demo Preview
-To be added later
+---
 
-👥 Team VYANAM
+## 📈 Demo Preview
+🔜 To be added soon…
+
+---
+
+## 👥 Team VYANAM
 Name	Role	Institution
-Priyanshu Sharma	AI/ML Lead, Backend Dev	IIPS Mumbai
-Bipul Kumar	Frontend Dev, UI/UX	IIPS Mumbai
+Priyanshu Sharma	AI/ML Lead, Backend Developer	IIPS Mumbai
+Bipul Kumar	Frontend Developer, UI/UX	IIPS Mumbai
 Ranveer Raj	Forecast Integration, Data Handling	IIPS Mumbai
 Madhav Verma	Health Mapping, Research Coordinator,	IIPS (MA Population Studies)
 
-🛠️ Future Enhancements
+---
+
+## 🛠️ Future Enhancements
 🔔 Push notification system for AQI alerts (Firebase)
 
-🌐 Multi-language support (Hindi, regional languages)
+🌐 Multi-language support (Hindi & regional languages)
 
 🔬 Integration of Sentinel-5P-based emission sources
 
-🧩 Modular API for third-party devs and smart city use
+🧩 Modular API for third-party developers and smart cities
 
 🏥 Emergency alert dashboard for schools and hospitals
 
-📃 License
-MIT License – feel free to fork, remix, and improve this open-source tool.
+---
 
-🙏 Acknowledgements
+## 📃 License
+MIT License – feel free to fork, remix, build upon, and improve this open-source tool.
+
+---
+
+## 🙏 Acknowledgements
 👨‍🚀 Indian Space Research Organisation (ISRO)
 
 🧠 Hack2Skill Platform
 
 🌫️ Central Pollution Control Board (CPCB)
 
-🌍 OpenAQ, OpenWeather, Sentinel-5P ESA Team
-
+🌍 OpenAQ, OpenWeather, and Sentinel-5P ESA Team
 
 ---
 
-### 🫶 About This Project
+## 🫶 About This Project
+AAROGYAM AI is more than just a hackathon entry — it's a mission-driven innovation built to democratise air quality information for every Indian, especially those in rural and semi-urban areas who are often left out of mainstream data narratives.
+By combining remote sensing, machine learning, and human-centred design, we aim to make breathing safer and smarter for everyone.
 
-**AAROGYAM AI** is more than just a hackathon entry — it’s a mission-driven innovation built to democratize air quality information for every Indian, especially those in rural and semi-urban areas who are often left out of the data narrative. By combining remote sensing, machine learning, and citizen-focused design, we aim to make breathing safer and smarter for everyone.
+"Breathing clean air is not a privilege. It's a basic right." – Team VYANAM
