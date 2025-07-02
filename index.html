@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Visualizer & Forecast</title>
+    <link rel="stylesheet" href="../src/styles/main.css">
+    <link rel="stylesheet" href="../src/styles/components.css">
+    <link rel="stylesheet" href="../src/styles/responsive.css">
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-wind"></i>
+                    <h1>AirQuality Pro</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#dashboard" class="nav-link active">Dashboard</a>
+                    <a href="#forecast" class="nav-link">Forecast</a>
+                    <a href="#historical" class="nav-link">Historical</a>
+                    <a href="#health" class="nav-link">Health</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="refreshBtn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                    <div class="location-selector">
+                        <select id="citySelector" class="select">
+                            <option value="">Select City</option>
+                            <option value="Delhi,Delhi">Delhi</option>
+                            <option value="Mumbai,Maharashtra">Mumbai</option>
+                            <option value="Bangalore,Karnataka">Bangalore</option>
+                            <option value="Chennai,Tamil Nadu">Chennai</option>
+                            <option value="Kolkata,West Bengal">Kolkata</option>
+                            <option value="Hyderabad,Telangana">Hyderabad</option>
+                            <option value="Pune,Maharashtra">Pune</option>
+                            <option value="Ahmedabad,Gujarat">Ahmedabad</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="section-header">
+                    <h2>Real-time Air Quality Dashboard</h2>
+                    <p>Monitor air quality conditions across Indian cities</p>
+                </div>
+
+                <!-- Current AQI Overview -->
+                <div class="aqi-overview">
+                    <div class="aqi-card main-aqi">
+                        <div class="aqi-header">
+                            <h3>Current AQI</h3>
+                            <span class="location" id="currentLocation">Select a city</span>
+                        </div>
+                        <div class="aqi-value" id="currentAQI">--</div>
+                        <div class="aqi-category" id="currentCategory">Unknown</div>
+                        <div class="aqi-timestamp" id="lastUpdate">--</div>
+                    </div>
+                    
+                    <div class="pollutant-grid">
+                        <div class="pollutant-card">
+                            <div class="pollutant-name">PM2.5</div>
+                            <div class="pollutant-value" id="pm25Value">--</div>
+                            <div class="pollutant-unit">μg/m³</div>
+                        </div>
+                        <div class="pollutant-card">
+                            <div class="pollutant-name">PM10</div>
+                            <div class="pollutant-value" id="pm10Value">--</div>
+                            <div class="pollutant-unit">μg/m³</div>
+                        </div>
+                        <div class="pollutant-card">
+                            <div class="pollutant-name">NO₂</div>
+                            <div class="pollutant-value" id="no2Value">--</div>
+                            <div class="pollutant-unit">μg/m³</div>
+                        </div>
+                        <div class="pollutant-card">
+                            <div class="pollutant-name">SO₂</div>
+                            <div class="pollutant-value" id="so2Value">--</div>
+                            <div class="pollutant-unit">μg/m³</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map and Charts Grid -->
+                <div class="dashboard-grid">
+                    <div class="map-container">
+                        <h3>AQI Map</h3>
+                        <div id="aqiMap" class="map"></div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>24-Hour Trend</h3>
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forecast Section -->
+            <section id="forecast" class="section">
+                <div class="section-header">
+                    <h2>AQI Forecast</h2>
+                    <p>Predicted air quality for the next 3 days</p>
+                </div>
+
+                <div class="forecast-container">
+                    <div class="forecast-cards" id="forecastCards">
+                        <!-- Forecast cards will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="forecast-chart-container">
+                        <h3>7-Day Forecast Trend</h3>
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Section -->
+            <section id="historical" class="section">
+                <div class="section-header">
+                    <h2>Historical Data</h2>
+                    <p>Analyze air quality trends over time</p>
+                </div>
+
+                <div class="historical-controls">
+                    <div class="date-range">
+                        <label for="startDate">From:</label>
+                        <input type="date" id="startDate" class="date-input">
+                        <label for="endDate">To:</label>
+                        <input type="date" id="endDate" class="date-input">
+                        <button class="btn btn-primary" id="loadHistoricalBtn">Load Data</button>
+                    </div>
+                </div>
+
+                <div class="historical-chart-container">
+                    <canvas id="historicalChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Health Section -->
+            <section id="health" class="section">
+                <div class="section-header">
+                    <h2>Health Recommendations</h2>
+                    <p>Personalized advice based on current air quality</p>
+                </div>
+
+                <div class="health-container">
+                    <div class="health-settings">
+                        <h3>Personal Settings</h3>
+                        <div class="setting-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="sensitiveGroup">
+                                <span class="checkmark"></span>
+                                I belong to a sensitive group (children, elderly, respiratory conditions)
+                            </label>
+                        </div>
+                        <button class="btn btn-primary" id="updateRecommendationsBtn">Update Recommendations</button>
+                    </div>
+
+                    <div class="recommendations" id="healthRecommendations">
+                        <!-- Health recommendations will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading data...</p>
+        </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="toast error-toast" id="errorToast">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorMessage">An error occurred</span>
+        <button class="toast-close" onclick="hideToast()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="toast success-toast" id="successToast">
+        <i class="fas fa-check-circle"></i>
+        <span id="successMessage">Success</span>
+        <button class="toast-close" onclick="hideToast()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../src/utils/api.js"></script>
+    <script src="../src/utils/charts.js"></script>
+    <script src="../src/utils/maps.js"></script>
+    <script src="../src/components/dashboard.js"></script>
+    <script src="../src/components/forecast.js"></script>
+    <script src="../src/components/historical.js"></script>
+    <script src="../src/components/health.js"></script>
+    <script src="../src/utils/app.js"></script>
+</body>
+</html>
+

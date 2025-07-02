@@ -1,0 +1,608 @@
+/* Responsive Design */
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .pollutant-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Medium screens (768px to 1199px) */
+@media (max-width: 1199px) {
+    .aqi-overview {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+    
+    .main-aqi {
+        order: -1;
+    }
+    
+    .health-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+    
+    .health-settings {
+        order: -1;
+    }
+}
+
+/* Tablet screens (768px to 991px) */
+@media (max-width: 991px) {
+    .header-content {
+        flex-wrap: wrap;
+        gap: var(--spacing-4);
+    }
+    
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: var(--spacing-4);
+        border-top: 1px solid var(--gray-200);
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+    
+    .forecast-cards {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .date-range {
+        justify-content: center;
+    }
+}
+
+/* Small tablets and large phones (576px to 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 var(--spacing-3);
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .logo {
+        justify-content: center;
+    }
+    
+    .header-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .nav {
+        order: unset;
+        padding-top: 0;
+        border-top: none;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-link {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .main {
+        padding: var(--spacing-6) 0;
+    }
+    
+    .section-header h2 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .aqi-overview {
+        gap: var(--spacing-3);
+    }
+    
+    .aqi-card {
+        padding: var(--spacing-4);
+    }
+    
+    .aqi-value {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .pollutant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-3);
+    }
+    
+    .pollutant-card {
+        padding: var(--spacing-3);
+    }
+    
+    .map-container,
+    .chart-container {
+        padding: var(--spacing-4);
+    }
+    
+    .map {
+        height: 300px;
+    }
+    
+    .forecast-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3);
+    }
+    
+    .forecast-card {
+        padding: var(--spacing-4);
+    }
+    
+    .forecast-chart-container {
+        padding: var(--spacing-4);
+    }
+    
+    .historical-controls {
+        padding: var(--spacing-4);
+    }
+    
+    .date-range {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-3);
+    }
+    
+    .date-range label {
+        text-align: center;
+    }
+    
+    .historical-chart-container {
+        padding: var(--spacing-4);
+        min-height: 300px;
+    }
+    
+    .health-container {
+        gap: var(--spacing-3);
+    }
+    
+    .health-settings {
+        padding: var(--spacing-4);
+    }
+    
+    .recommendation-card {
+        padding: var(--spacing-4);
+    }
+    
+    .chart-wrapper {
+        height: 250px;
+    }
+    
+    .chart-no-data {
+        height: 250px;
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Mobile phones (up to 575px) */
+@media (max-width: 575px) {
+    .container {
+        padding: 0 var(--spacing-2);
+    }
+    
+    .header {
+        position: relative;
+    }
+    
+    .header-content {
+        padding: var(--spacing-3) 0;
+    }
+    
+    .logo h1 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .nav {
+        gap: var(--spacing-2);
+        margin: 0 calc(-1 * var(--spacing-2));
+        padding: 0 var(--spacing-2);
+    }
+    
+    .nav-link {
+        padding: var(--spacing-2);
+        font-size: var(--font-size-sm);
+    }
+    
+    .header-actions {
+        gap: var(--spacing-2);
+    }
+    
+    .btn {
+        padding: var(--spacing-2) var(--spacing-3);
+        font-size: var(--font-size-xs);
+    }
+    
+    .select {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-2);
+    }
+    
+    .main {
+        padding: var(--spacing-4) 0;
+    }
+    
+    .section-header {
+        margin-bottom: var(--spacing-6);
+    }
+    
+    .section-header h2 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .section-header p {
+        font-size: var(--font-size-base);
+    }
+    
+    .aqi-overview {
+        margin-bottom: var(--spacing-6);
+    }
+    
+    .aqi-card {
+        padding: var(--spacing-3);
+    }
+    
+    .aqi-header h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .aqi-value {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .aqi-category {
+        font-size: var(--font-size-base);
+        padding: var(--spacing-1) var(--spacing-3);
+    }
+    
+    .pollutant-grid {
+        gap: var(--spacing-2);
+    }
+    
+    .pollutant-card {
+        padding: var(--spacing-2);
+    }
+    
+    .pollutant-name {
+        font-size: var(--font-size-xs);
+    }
+    
+    .pollutant-value {
+        font-size: var(--font-size-lg);
+    }
+    
+    .dashboard-grid {
+        gap: var(--spacing-3);
+    }
+    
+    .map-container,
+    .chart-container {
+        padding: var(--spacing-3);
+    }
+    
+    .map-container h3,
+    .chart-container h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-3);
+    }
+    
+    .map {
+        height: 250px;
+    }
+    
+    .forecast-container {
+        gap: var(--spacing-6);
+    }
+    
+    .forecast-cards {
+        gap: var(--spacing-2);
+    }
+    
+    .forecast-card {
+        padding: var(--spacing-3);
+    }
+    
+    .forecast-date {
+        font-size: var(--font-size-xs);
+    }
+    
+    .forecast-aqi {
+        font-size: var(--font-size-xl);
+    }
+    
+    .forecast-chart-container {
+        padding: var(--spacing-3);
+    }
+    
+    .forecast-chart-container h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-3);
+    }
+    
+    .historical-controls {
+        padding: var(--spacing-3);
+    }
+    
+    .date-range {
+        gap: var(--spacing-2);
+    }
+    
+    .date-input {
+        padding: var(--spacing-2);
+        font-size: var(--font-size-sm);
+    }
+    
+    .historical-chart-container {
+        padding: var(--spacing-3);
+        min-height: 250px;
+    }
+    
+    .health-settings {
+        padding: var(--spacing-3);
+    }
+    
+    .health-settings h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-3);
+    }
+    
+    .checkbox-label {
+        font-size: var(--font-size-xs);
+    }
+    
+    .recommendation-card {
+        padding: var(--spacing-3);
+    }
+    
+    .recommendation-title {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-2);
+    }
+    
+    .recommendation-content {
+        font-size: var(--font-size-sm);
+    }
+    
+    .chart-wrapper {
+        height: 200px;
+    }
+    
+    .chart-no-data {
+        height: 200px;
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-4);
+    }
+    
+    .loading-spinner {
+        padding: var(--spacing-6);
+    }
+    
+    .loading-spinner i {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .toast {
+        top: var(--spacing-2);
+        right: var(--spacing-2);
+        left: var(--spacing-2);
+        max-width: none;
+        padding: var(--spacing-3);
+    }
+    
+    .empty-state {
+        padding: var(--spacing-8) var(--spacing-2);
+    }
+    
+    .empty-state i {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-3);
+    }
+    
+    .empty-state h3 {
+        font-size: var(--font-size-base);
+    }
+    
+    .empty-state p {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Extra small phones (up to 375px) */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 var(--spacing-1);
+    }
+    
+    .logo {
+        gap: var(--spacing-2);
+    }
+    
+    .logo i {
+        font-size: var(--font-size-xl);
+    }
+    
+    .logo h1 {
+        font-size: var(--font-size-base);
+    }
+    
+    .nav {
+        gap: var(--spacing-1);
+    }
+    
+    .nav-link {
+        padding: var(--spacing-1) var(--spacing-2);
+        font-size: var(--font-size-xs);
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        gap: var(--spacing-2);
+    }
+    
+    .section-header h2 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .aqi-value {
+        font-size: var(--font-size-xl);
+    }
+    
+    .pollutant-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .forecast-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .date-range {
+        align-items: stretch;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+    
+    .main {
+        padding: var(--spacing-4) 0;
+    }
+    
+    .section-header {
+        margin-bottom: var(--spacing-4);
+    }
+    
+    .aqi-overview {
+        margin-bottom: var(--spacing-4);
+    }
+    
+    .map {
+        height: 200px;
+    }
+    
+    .chart-wrapper {
+        height: 200px;
+    }
+    
+    .chart-no-data {
+        height: 200px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .nav,
+    .btn,
+    .loading-overlay,
+    .toast {
+        display: none !important;
+    }
+    
+    .main {
+        padding: 0;
+    }
+    
+    .section {
+        display: block !important;
+        page-break-after: always;
+    }
+    
+    .section:last-child {
+        page-break-after: auto;
+    }
+    
+    .aqi-card,
+    .pollutant-card,
+    .forecast-card,
+    .recommendation-card {
+        box-shadow: none;
+        border: 1px solid var(--gray-300);
+    }
+    
+    .map {
+        height: 300px;
+        background: var(--gray-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .map::after {
+        content: 'Map not available in print';
+        color: var(--gray-500);
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --gray-100: #f0f0f0;
+        --gray-200: #e0e0e0;
+        --gray-300: #c0c0c0;
+        --gray-400: #a0a0a0;
+        --gray-500: #808080;
+        --gray-600: #606060;
+        --gray-700: #404040;
+        --gray-800: #202020;
+        --gray-900: #000000;
+    }
+    
+    .aqi-card,
+    .pollutant-card,
+    .forecast-card,
+    .recommendation-card,
+    .data-card {
+        border: 2px solid var(--gray-400);
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .loading-spinner i {
+        animation: none;
+    }
+    
+    .skeleton {
+        animation: none;
+        background: var(--gray-200);
+    }
+}
+
